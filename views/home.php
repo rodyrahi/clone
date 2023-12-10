@@ -33,8 +33,8 @@
       <a class="navbar-brand">
 
         <div class="d-flex">
-          <img src="ham.svg" alt="" srcset="">
-          <img src="brand.svg" width="160" height="40" title="Flipkart">
+          <img src="/public/ham.svg" alt="" srcset="">
+          <img src="/public/brand.svg" width="160" height="40" title="Flipkart">
 
 
         </div>
@@ -121,13 +121,13 @@
     <div id="carouselExampleControls" class="carousel slide mt-3" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active " style="">
-            <img src="iphone.jpg"  class="d-block w-100" >
+            <img src="/public/iphone.jpg"  class="d-block w-100" >
           </div>
           <div class="carousel-item">
-            <img src="zeb.jpg" class="d-block w-100" alt="...">
+            <img src="/public/zeb.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="plane.jpg" class="d-block w-100" alt="...">
+            <img src="/public/plane.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
