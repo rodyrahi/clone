@@ -197,6 +197,24 @@ if (isset($_GET['item'])) {
               echo '</div>';
               echo '</div>';
 
+              echo'
+              
+              <div class="row p-2 my-2 bg-white">
+                <p class=" " style="font-weight: 100;">' . $selectedProduct['name'] . '</p>
+                <div class="d-flex">
+                  <h5 class="me-2 fw-bold " style="">₹' . $selectedProduct['price'] . '</h5>
+                  <h5 class="me-2 text-muted fw-bold text-decoration-line-through " style="">₹' . $selectedProduct['oldPrice'] . '</h5>
+
+                  <h5 class="me-1 fw-bold " style="color:#008C00">' . $selectedProduct['discount'] . '% off</h5>
+
+
+                </div>
+
+              </div>
+
+              ';
+
+
               echo'<div class="row bg-white d-flex p-3 mb-1 mt-2 border ">
                 <img class="m-auto" src="http://dailyofferday.shop/assets/images/pay-latter.png" alt="pay-latter">
               </div>';
