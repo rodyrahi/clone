@@ -1,6 +1,11 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+   RewriteEngine On
+
+   # Exclude existing files and directories from the rewrite
+   RewriteCond %{REQUEST_FILENAME} -f [OR]
+   RewriteCond %{REQUEST_FILENAME} -d
+   RewriteRule ^ - [L]
+
+   # Redirect everything else to default.php
+   RewriteRule ^(.*)$ default.php [L,QSA]
 </IfModule>

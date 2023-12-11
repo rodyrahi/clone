@@ -68,7 +68,7 @@ if (isset($_GET['item'])) {
     $selectedItem = $_GET['item'];
 
     // Output the selected item
-    echo "Selected item: $selectedItem";
+
 } else {
     // Handle the case where "item" parameter is not set
     echo "No item selected.";
@@ -89,7 +89,7 @@ if (isset($_GET['item'])) {
           <svg width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.556 7.847H1M7.45 1L1 7.877l6.45 6.817" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
           </svg>
-          <img src="/public/brand.svg" width="160" height="40" title="Flipkart">
+          <img src="/public/brand.png" class="ms-3" title="Flipkart">
 
 
         </div>
@@ -124,7 +124,7 @@ if (isset($_GET['item'])) {
   </nav>
 
 
-  <div class="container">
+  <div class="container-fluid">
     <?php
       // Read products from products.json
       $currentDirectory = getcwd();
@@ -157,7 +157,7 @@ if (isset($_GET['item'])) {
               // Loop through the image URLs for the carousel
               foreach ($selectedProduct['imageUrls'] as $index => $imageUrl) {
                   echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
-                  echo '<img src="' . $imageUrl . '" class="d-block w-100" alt="Product Image">';
+                  echo '<img src="' . $imageUrl . '" class="d-block img-fluid " alt="Product Image">';
                   echo '</div>';
               }
 
@@ -171,16 +171,16 @@ if (isset($_GET['item'])) {
               echo '<span class="visually-hidden">Next</span>';
               echo '</button>';
               echo '</div>';
-              echo '<div class="text-start mt-3 ms-2">';
+              echo '<div class="text-start mt-3 ">';
               echo '<h6 class="fw-bold">Select Color</h6>';
               echo '<div class=" p-3 text-center" style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;">';
               echo '<img class="img-fluid mb-2" style="max-width: 70px;" src="' . $selectedProduct['imageUrls'][0] . '" alt="">';
               echo '<p class="mb-0">Default</p>';
               echo '</div>';
               echo '</div>';
-              echo '<div class="text-start mt-3 ms-2">';
+              echo '<div class="text-start mt-3 ">';
               echo '<h6 class="fw-bold">Select Size</h6>';
-              echo '<div class="d-flex" type="button">';
+              echo '<div class="d-flex mb-3" type="button">';
 
 
           
@@ -196,6 +196,44 @@ if (isset($_GET['item'])) {
               echo '</div>';
               echo '</div>';
               echo '</div>';
+
+              echo'<div class="row bg-white d-flex p-3 mb-1 mt-2 border ">
+                <img class="m-auto" src="http://dailyofferday.shop/assets/images/pay-latter.png" alt="pay-latter">
+              </div>';
+
+              echo'<div class="row p-2 bg-white border mt-1 ">
+                
+                    <div class="col-4  d-flex flex-column text-center" >
+                      <img class="m-auto mb-2"  width="30px" src="http://dailyofferday.shop/assets/images/replacement.png">
+                      
+                      <p class="m-0" style="font-size: 0.6rem;">7 days Replacement</p>
+                    </div>
+
+                    <div class="col-4  d-flex flex-column text-center" >
+                      <img class="m-auto mb-2"  width="30px" src="http://dailyofferday.shop/assets/images/non-cod.png">
+                      
+                      <p class="m-0" style="font-size: 0.6rem;">No Cash On Delivery</p>
+                    </div>
+
+                    <div class="col-4  d-flex flex-column text-center" >
+                      <img class="m-auto" width="70px" src="http://dailyofferday.shop/assets/images/plue-fassured.png">
+                      
+                      <p class="m-0" style="font-size: 0.6rem;">Plus (F-Assured)</p>
+                    </div>
+
+
+                    
+
+              </div>';
+
+              echo '<div class="row  mt-2">';
+              echo '<div class="col bg-white border p-3">';
+              echo '<p class="fw-bold">Product Detail</p>';
+              echo '<p>' . $selectedProduct['description'] . '</p>'; // Added concatenation and semicolon
+              echo '</div>';
+              echo '</div>';
+              
+
           } else {
               // Handle the case where the selected item is not found
               echo '<p>Product not found.</p>';
@@ -208,7 +246,71 @@ if (isset($_GET['item'])) {
 
 
 
+
+<div class="fixed-bottom row  ">
+      <div class="col-6 p-3 d-flex bg-white">
+        <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
+        <?php
+      $currentDirectory = getcwd();
+      $jsonFileName = 'payment.json';
+      $jsonFilePath = $currentDirectory . '/' . $jsonFileName;
       
+      // Read the content of the JSON file
+      $jsonContent = file_get_contents($jsonFilePath);
+      
+      // Decode the JSON data
+      $data = json_decode($jsonContent, true); // Set the second parameter to true to get an associative array
+      
+      // Check if decoding was successful
+      if ($data !== null) {
+          // Access the "url" value
+          $url = $data['url'];
+      
+          // Use the $url variable as needed
+          echo '<a href="' . $url . '" class="stretched-link"></a>';
+      } else {
+          echo "Error decoding JSON data";
+      }
+      ?>
+
+
+       
+      </div>
+      <div class="col-6 p-3 d-flex position-relative" style="background-color:#FFC200" >
+        <p class="m-auto" style="font-weight: 100;" >Buy Now</p>
+      
+
+
+      <?php
+      $currentDirectory = getcwd();
+      $jsonFileName = 'payment.json';
+      $jsonFilePath = $currentDirectory . '/' . $jsonFileName;
+      
+      // Read the content of the JSON file
+      $jsonContent = file_get_contents($jsonFilePath);
+      
+      // Decode the JSON data
+      $data = json_decode($jsonContent, true); // Set the second parameter to true to get an associative array
+      
+      // Check if decoding was successful
+      if ($data !== null) {
+          // Access the "url" value
+          $url = $data['url'];
+      
+          // Use the $url variable as needed
+          echo '<a href="' . $url . '" class="stretched-link"></a>';
+      } else {
+          echo "Error decoding JSON data";
+      }
+      ?>
+      
+    </div>
+      
+
+  </div>
+    
+
+  <div class="mb-5"></div>
 
   </div>
 
