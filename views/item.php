@@ -55,7 +55,24 @@
         }
     </style>
     
-    
+    <?php
+// Check if the "item" parameter is set in the query string
+if (isset($_GET['item'])) {
+    // Retrieve the value of the "item" parameter
+    $selectedItem = $_GET['item'];
+
+    // Output the selected item
+    echo "Selected item: $selectedItem";
+} else {
+    // Handle the case where "item" parameter is not set
+    echo "No item selected.";
+}
+?>
+
+
+
+
+
 
 <body style="font-family: 'Inter', sans-serif; font-weight: 400; background-color: #F1F2F4;">
     <nav class="navbar navbar-light " style="background-color: #2874F0;">
@@ -98,77 +115,87 @@
 
 
       <div class="container">
-        <div class="row border p-1 bg-white">
+      <?php
+// Read products from products.json
+$currentDirectory = getcwd();
+$jsonFileName = 'products.json';
+$jsonFilePath = $currentDirectory . '/' . $jsonFileName;
 
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="share-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" type="button" class="_1l0elc" width="28" height="28" viewBox="0 0 20 16"><path d="M8.695 16.682C4.06 12.382 1 9.536 1 6.065 1 3.219 3.178 1 5.95 1c1.566 0 3.069.746 4.05 1.915C10.981 1.745 12.484 1 14.05 1 16.822 1 19 3.22 19 6.065c0 3.471-3.06 6.316-7.695 10.617L10 17.897l-1.305-1.215z" fill="#CBCBCB" class="eX72wL" stroke="#FFF" fill-rule="evenodd" opacity=".9"></path></svg>
+$jsonData = file_get_contents($jsonFilePath);
+$products = json_decode($jsonData, true);
 
-                    </div>
+// Check if the "item" parameter is set in the query string
+if (isset($_GET['item'])) {
+    // Retrieve the value of the "item" parameter
+    $selectedItem = $_GET['item'];
 
-                    <div class="share-icon " style="top: 60px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" type="button"  viewBox="0 0 24 24"> <g> <path fill="none" d="M0 0h24v24H0z"/> <path d="M13 14h-2a8.999 8.999 0 0 0-7.968 4.81A10.136 10.136 0 0 1 3 18C3 12.477 7.477 8 13 8V3l10 8-10 8v-5z" fill="#CBCBCB" class="eX72wL" stroke="#FFF" fill-rule="evenodd" opacity=".9" /> </g> </svg>
+    // Find the selected item in the products array
+    $selectedProduct = null;
+    foreach ($products['items'] as $product) {
+        if ($product['name'] === $selectedItem) {
+            $selectedProduct = $product;
+            break;
+        }
+    }
 
-                   
-                    </div>
+    // Display detailed information about the selected product
+    if ($selectedProduct) {
+        echo '<div class="row border p-1 bg-white">';
+        echo '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">';
+        echo '<div class="carousel-inner">';
+
+        // Loop through the image URLs for the carousel
+        foreach ($selectedProduct['imageUrls'] as $index => $imageUrl) {
+            echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
+            echo '<img src="' . $imageUrl . '" class="d-block w-100" alt="Product Image">';
+            echo '</div>';
+        }
+
+        echo '</div>';
+        echo '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">';
+        echo '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
+        echo '<span class="visually-hidden">Previous</span>';
+        echo '</button>';
+        echo '<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">';
+        echo '<span class="carousel-control-next-icon" aria-hidden="true"></span>';
+        echo '<span class="visually-hidden">Next</span>';
+        echo '</button>';
+        echo '</div>';
+        echo '<div class="text-start mt-3 ms-2">';
+        echo '<h6 class="fw-bold">Select Color</h6>';
+        echo '<div class=" p-3 text-center" style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;">';
+        echo '<img class="img-fluid mb-2" style="max-width: 70px;" src="' . $selectedProduct['imageUrls'][0] . '" alt="">';
+        echo '<p class="mb-0">Default</p>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="text-start mt-3 ms-2">';
+        echo '<h6 class="fw-bold">Select Size</h6>';
+        echo '<div class="d-flex" type="button">';
 
 
+     
+        $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+        
+        foreach ($sizes as $size) {
+            echo '<input type="button" class="btn-check" id="size' . $size . '" autocomplete="off">';
+            echo '<label class="btn btn-outline-primary mx-2 fw-bold" for="size' . $size . '">' . $size . '</label>';
+        }
+        
+        
 
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    } else {
+        // Handle the case where the selected item is not found
+        echo '<p>Product not found.</p>';
+    }
+} else {
+    // Handle the case where "item" parameter is not set
+    echo '<p>No item selected.</p>';
+}
+?>
 
-
-
-                  <div class="carousel-item active d-flex">
-                    <div class="text-center mx-auto">
-                        <img src="https://m.media-amazon.com/images/I/61AehlXUVmL._SX679_.jpg" style="max-width:350px;" class="d-block w-100" alt="...">
-
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                  </div>
-                </div>
-
-              </div>
-              
-
-
-            <div class="text-start mt-3 ms-2">
-                <h6 class="fw-bold">Select Color</h6>
-                <div class=" p-3 text-center"  style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;" >
-                    <img class="img-fluid mb-2" style="max-width: 70px;" src="https://m.media-amazon.com/images/I/61AehlXUVmL._SX679_.jpg" alt="">
-                    <p class="mb-0">Default</p>
-                </div>
-
-            </div>
-
-
-            <div class="text-start mt-3 ms-2">
-                <h6 class="fw-bold">Select Size</h6>
-
-                <div class="d-flex" type="button">
-                    <input type="button" class="btn-check" id="sizeS" autocomplete="off">
-                    <label class="btn btn-outline-primary me-2 fw-bold shadow-sm" for="sizeS">S</label>
-                
-                    <input type="button" class="btn-check" id="sizeM" autocomplete="off">
-                    <label class="btn btn-outline-primary mx-2 fw-bold" for="sizeM">M</label>
-                
-                    <input type="button" class="btn-check" id="sizeL" autocomplete="off">
-                    <label class="btn btn-outline-primary mx-2 fw-bold" for="sizeL">L</label>
-                
-                    <input type="button" class="btn-check" id="sizeXL" autocomplete="off">
-                    <label class="btn btn-outline-primary mx-2 fw-bold"  for="sizeXL">XL</label>
-                
-                    <input type="button" class="btn-check" id="sizeXXL" autocomplete="off">
-                    <label class="btn btn-outline-primary mx-2 fw-bold"  for="sizeXXL">XXL</label>
-                </div>
-                
-
-            </div>
-        </div>
 
 
 

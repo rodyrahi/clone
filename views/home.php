@@ -146,7 +146,47 @@
 
       <div class="row mt-2">
  
+      <?php
+// Read products from products.json
+$jsonFilePath = 'products.json';
+$jsonData = file_get_contents($jsonFilePath);
+$products = json_decode($jsonData, true);
 
+if ($products && isset($products['items'])) {
+    foreach ($products['items'] as $product) {
+        echo '<div class="col-6 p-2 position-relative">';
+        echo '<div class="bg-white p-3 d-flex flex-column">';
+        echo '<div class="text-end">';
+        echo '<svg xmlns="http://www.w3.org/2000/svg" type="button" class="_1l0elc" width="28" height="28" viewBox="0 0 20 16"><path d="M8.695 16.682C4.06 12.382 1 9.536 1 6.065 1 3.219 3.178 1 5.95 1c1.566 0 3.069.746 4.05 1.915C10.981 1.745 12.484 1 14.05 1 16.822 1 19 3.22 19 6.065c0 3.471-3.06 6.316-7.695 10.617L10 17.897l-1.305-1.215z" fill="#CBCBCB" class="eX72wL" stroke="#FFF" fill-rule="evenodd" opacity=".9"></path></svg>';
+        echo '</div>';
+
+
+        echo '<div class="m-auto p-3 image" style="max-width: 200px;">';
+        echo '<img src="' . $product['imageUrls'][0] . '" class="img-fluid" style="object-fit: scale-down;" alt="">';
+        echo '</div>';
+
+        echo '<div class="mt-auto no-wrap">';
+        echo '<h6 class="text-muted" style="font-weight: 200;">' . $product['brand'] . '</h6>';
+        echo '<p class="text-truncate mb-1" style="font-weight: 100;">' . $product['name'] . '</p>';
+        echo '<img class="mb-2" src="http://dailyofferday.shop/img/SwOvZ3r.png" width="77px">';
+        echo '<p class="fw-bold me-2 mb-0" style="font-size: 1rem;">₹' . $product['price'] . '</p>';
+        echo '<div class="d-flex mt-1 ">';
+        echo '<p class="text-muted me-2 text-decoration-line-through mb-0" style="font-size: 1rem;">₹' . $product['oldPrice'] . '</p>';
+        echo '<p class="mb-0" style="color: #388E3C; font-size: 1rem;">' . $product['discount'] * 100 . '% off</p>';
+        echo '</div>';
+        echo '<div class="d-flex" style="font-size: 0.7rem;">';
+        echo '<p class="text-muted me-2 mb-0">Size</p>';
+        echo '<p class="mb-0">S, M, L, XL, XXL</p>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<a href="product?item=' . $product['name'] . '" class="stretched-link"></a>';
+        echo '</div>';
+    }
+} else {
+    echo '<p>No products found.</p>';
+}
+?>
         <div class="col-6  p-2 position-relative">
             <div class="bg-white p-3 d-flex flex-column "  >
                 <div class="text-end">
@@ -180,7 +220,7 @@
                 
 
             </div>
-            <a href="123" class="stretched-link"></a>
+            <a href="product" class="stretched-link"></a>
 
         </div>
 
@@ -261,6 +301,13 @@
 
 
   </div>
+
+
+
+
+
+
+
 
 
 </body>
