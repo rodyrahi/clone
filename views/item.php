@@ -155,12 +155,17 @@ if (isset($_GET['item'])) {
               echo '<div class="carousel-inner">';
 
               // Loop through the image URLs for the carousel
-              foreach ($selectedProduct['imageUrls'] as $index => $imageUrl) {
-                  echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '">';
-                  echo '<img src="' . $imageUrl . '" class="d-block img-fluid " alt="Product Image">';
-                  echo '</div>';
-              }
-
+              
+              foreach ($selectedProduct['colorImageUrls'] as $index => $imageUrl) {
+                if ($index === 0 || $index > count($selectedProduct['colors']) ) {
+                    echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '" >';
+                    echo '<img src="' . $imageUrl . '" class="d-block img-fluid" alt="Product Image" id="' . ($index === 0 ? 'active' : '') . '">';
+                    echo '</div>';
+                }
+            }
+            
+              
+              
               echo '</div>';
               echo '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">';
               echo '<span class="carousel-control-prev-icon" aria-hidden="true"></span>';
@@ -173,10 +178,31 @@ if (isset($_GET['item'])) {
               echo '</div>';
               echo '<div class="text-start mt-3 ">';
               echo '<h6 class="fw-bold">Select Color</h6>';
-              echo '<div class=" p-3 text-center" style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;">';
-              echo '<img class="img-fluid mb-2" style="max-width: 70px;" src="' . $selectedProduct['imageUrls'][0] . '" alt="">';
-              echo '<p class="mb-0">Default</p>';
-              echo '</div>';
+             
+              // Assuming $selectedProduct is an array with 'colors' and 'imageUrls' keys
+              
+              $selectedProductColors = $selectedProduct['colors'];
+              $selectedProductImageUrls = $selectedProduct['colorImageUrls'];
+              
+              // Check if the colors array is not empty
+              if (!empty($selectedProductColors)) {
+                  // Iterate over each color and generate HTML
+                  echo '<div class="d-flex">';
+                  foreach ($selectedProductColors as $index => $color) {
+                      echo '<div class="p-3 text-center me-2" onclick="changecolor(this)" data-color="' . $selectedProduct['colors'][$index] . '" style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;">
+                              <img class="img-fluid mb-2" style="max-width: 70px;" id="' . $selectedProduct['colors'][$index] . '" src="' . $selectedProductImageUrls[$index] . '" alt="">
+                              <p class="mb-0">' . $color . '</p>
+                          </div>';
+                  }
+                  echo '</div>';
+              } else {
+                  // Handle the case where no colors are available
+                  echo '<p>No colors available for this product.</p>';
+              }
+              
+              
+              
+              
               echo '</div>';
               echo '<div class="text-start mt-3 ">';
               echo '<h6 class="fw-bold">Select Size</h6>';
@@ -265,32 +291,13 @@ if (isset($_GET['item'])) {
 
 
 
-<div class="fixed-bottom row  ">
-      <div class="col-6 p-3 d-flex bg-white">
+<div class="fixed-bottom row  " style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);">
+      <div class="col-6 p-3 d-flex bg-white " >
         <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
-        <?php
-      $currentDirectory = getcwd();
-      $jsonFileName = 'payment.json';
-      $jsonFilePath = $currentDirectory . '/' . $jsonFileName;
-      
-      // Read the content of the JSON file
-      $jsonContent = file_get_contents($jsonFilePath);
-      
-      // Decode the JSON data
-      $data = json_decode($jsonContent, true); // Set the second parameter to true to get an associative array
-      
-      // Check if decoding was successful
-      if ($data !== null) {
-          // Access the "url" value
-          $url = $data['url'];
-      
-          // Use the $url variable as needed
-          echo '<a href="' . $url . '" class="stretched-link"></a>';
-      } else {
-          echo "Error decoding JSON data";
-      }
-      ?>
 
+        <?php
+        echo'<a href="/cart?item=' . $selectedProduct['id'] . '" class="stretched-link"></a>';
+        ?>
 
        
       </div>
@@ -332,7 +339,14 @@ if (isset($_GET['item'])) {
 
   </div>
 
-
+<script>
+  function changecolor(element) {
+    // Get the color from the data-color attribute
+    var color = element.getAttribute('data-color');
+    document.getElementById('active').src = document.getElementById(color).src
+    console.log(document.getElementById(color).src)
+}
+</script>
 
 
 

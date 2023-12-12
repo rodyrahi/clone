@@ -7,7 +7,7 @@
   <link rel="icon" href="http://dailyofferday.shop/img/small-logo.png">
   <title>Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
@@ -17,7 +17,7 @@
   </style>
 
   <style>
-    h6{
+    p{
         font-size: 13px;
     }
 
@@ -33,8 +33,9 @@
       <a class="navbar-brand">
 
         <div class="d-flex">
-          <img src="/public/ham.png"  class="me-2 d-block d-md-none" alt="" srcset="" width="30px" height="30px" >
-          <img src="/public/brand.png"  title="Flipkart">
+          <i class="fa-solid fa-bars text-white m-auto me-2" style="font-size: 1.1rem;"></i>
+          <!-- <img src="/public/ham.png"  class="me-2 d-block d-md-none" alt="" srcset="" width="20px" height="20px" > -->
+          <img src="/public/brand.png" width="55px" title="Flipkart">
 
 
         </div>
@@ -69,44 +70,32 @@
 
 
   <div class="container">
-    <div class="row p-3  mt-3 text-center shadow-sm" style="background-color: white; overflow-x: auto; align-items: center;">
-        <div class="col text-center d-flex " style="align-items: center; align-content: center; ">
+    <div class="row p-1  mt-3 text-center shadow-sm" style="background-color: white; overflow-x: auto; align-items: center;">
+        <div class="col p-0 text-center d-flex " style="align-items: center; align-content: center; ">
             <div class=" text-center mx-auto">
-                <img class="mx-3" alt="Top Offers" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/085406bae47866d5.png?q=100">
-                <h6 class="fw-bold">Top Offers</h6>
+                <img class="mx-3" width="50px" alt="Top Offers" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/085406bae47866d5.png?q=100">
+                <p class="fw-bold m-0">Top Offers</p>
             </div>
 
             <div class="text-center mx-auto">
-                <img class="mx-3" alt="Mobiles &amp; Tablets" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/64f1cc66052c66ef.png?q=100">
-                <h6 class="fw-bold">Mobiles & Tablets</h6>
+                <img class="mx-3" width="50px" alt="Mobiles &amp; Tablets" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/64f1cc66052c66ef.png?q=100">
+                <p class="fw-bold m-0">Mobiles</p>
             </div>
 
             <div class=" text-center mx-auto">
-                <img class="mx-3" alt="Electronics" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/1fd83847b32a09d1.png?q=100">
-                <h6 class="fw-bold">Electronics</h6>
+                <img class="mx-3" width="50px" alt="Electronics" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/1fd83847b32a09d1.png?q=100">
+                <p class="fw-bold m-0">Electronics</p>
             </div>
 
             <div class="text-center mx-auto">
-                <img class="mx-3" alt="TVs &amp; Appliances" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/6c0716819ac55121.png?q=100">            
-                <h6 class="fw-bold">TVs & Appliances</h6>
+                <img class="mx-3" width="50px" alt="TVs &amp; Appliances" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/6c0716819ac55121.png?q=100">            
+                <p class="fw-bold m-0">TVs</p>
             </div>
             <div class="text-center mx-auto">
-                <img class="mx-3" alt="Fashion" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/6dbed7ba5417672f.jpg?q=100">
-                            <h6 class="fw-bold">Fashion</h6>
+                <img class="mx-3" width="50px" alt="Fashion" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/6dbed7ba5417672f.jpg?q=100">
+                            <p class="fw-bold m-0">Fashion</p>
             </div>
-            <div class="text-center mx-auto">
-                <img class="mx-3" alt="Beauty" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/c444de48eb75d450.png?q=100">
-                            <h6 class="fw-bold">Beauty</h6>
-            </div>
-            <div class="text-center mx-auto">
-                <img class="mx-3" alt="Home &amp; Kitchen" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/f9c7aaa5f5455ae7.png?q=100"> 
-                <h6 class="fw-bold">Home & Kitchen</h6>
-
-            </div>
-            <div class="text-center mx-auto ">
-                <img class="mx-3" alt="Furniture" src="https://rukminim1.flixcart.com/fk-p-flap/64/64/image/26e11f4698473e49.png?q=100">
-                <h6 class="fw-bold">Furniture</h6>
-            </div>
+          
 
             
 
@@ -161,12 +150,12 @@ if ($products && isset($products['items'])) {
         echo '</div>';
 
 
-        echo '<div class="m-auto p-3 image" style="max-width: 200px;">';
-        echo '<img src="' . $product['imageUrls'][0] . '" class="img-fluid" style="object-fit: scale-down;" alt="">';
-        echo '</div>';
+        echo '<div class="m-auto p-3 image" style="max-width: 200px;">
+        <img src="' . $product['colorImageUrls'][0] . '" class="img-fluid" style="object-fit: scale-down;" alt="">
+        </div>';
 
         echo '<div class="mt-auto no-wrap">';
-        echo '<h6 class="text-muted" style="font-weight: 200;">' . $product['brand'] . '</h6>';
+        echo '<p class="text-muted" style="font-weight: 200;">' . $product['brand'] . '</p>';
         echo '<p class="text-truncate mb-1" style="font-weight: 100;">' . $product['name'] . '</p>';
         echo '<img class="mb-2" src="http://dailyofferday.shop/img/SwOvZ3r.png" width="77px">';
         echo '<p class="fw-bold me-2 mb-0" style="font-size: 1rem;">₹' . $product['price'] . '</p>';

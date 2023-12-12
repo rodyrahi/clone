@@ -13,17 +13,19 @@ $jsonData = file_get_contents($jsonFilePath);
 $items = json_decode($jsonData, true);
 
 // Handle form submission for adding new items
+// Handle form submission for adding new items
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add'])) {
         $newItem = [
             'id' => count($items['items']) + 1,
             'name' => $_POST['name'],
-            'brand' => $_POST['brand'], // Added brand field
+            'brand' => $_POST['brand'],
             'description' => $_POST['description'],
             'price' => floatval($_POST['price']),
             'discount' => floatval($_POST['discount']),
             'oldPrice' => floatval($_POST['oldPrice']),
-            'imageUrls' => explode(',', $_POST['imageUrls'])
+            'colors' => explode(',', $_POST['colors']),
+            'colorImageUrls' => explode(',', $_POST['colorImageUrls'])
         ];
 
         // Add the new item to the items array
@@ -33,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         file_put_contents($jsonFilePath, json_encode($items, JSON_PRETTY_PRINT));
 
         // Redirect to avoid form resubmission on refresh
-        header("Location: {$_SERVER['PHP_SELF']}");
+        header("Location: /admin");
         exit();
     }
 }
@@ -107,66 +109,80 @@ if (isset($_GET['delete'])) {
     </form>
 
     <!-- Form to add new items -->
-        <form method="post" class="mt-3">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" name="name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="brand" class="form-label">Brand:</label>
-                <input type="text" name="brand" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea name="description" class="form-control" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <input type="number" name="price" step="0.01" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="discount" class="form-label">Discount:</label>
-                <input type="number" name="discount" step="0.01" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="oldPrice" class="form-label">Old Price:</label>
-                <input type="number" name="oldPrice" step="0.01" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="imageUrls" class="form-label">Image URLs (comma-separated):</label>
-                <input type="text" name="imageUrls" class="form-control" required>
-            </div>
-            <!-- New input for payment -->
+    <form method="post" class="mt-3">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="brand" class="form-label">Brand:</label>
+        <input type="text" name="brand" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="description" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" name="price" step="0.01" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="discount" class="form-label">Discount:</label>
+        <input type="number" name="discount" step="0.01" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="oldPrice" class="form-label">Old Price:</label>
+        <input type="number" name="oldPrice" step="0.01" class="form-control" required>
+    </div>
+    
+    <!-- Color-related fields -->
+    <div class="mb-3">
+        <label for="color" class="form-label">Colors (comma-separated):</label>
+        <input type="text" name="colors" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="colorImageUrls" class="form-label">Color Image URLs (comma-separated):</label>
+        <input type="text" name="colorImageUrls" class="form-control" required>
+    </div>
 
-            <div class="mb-3">
-                <input type="submit" name="add" value="Add Item" class="btn btn-primary">
-            </div>
-        </form>
+    <!-- New input for payment -->
+    <div class="mb-3">
+        <input type="submit" name="add" value="Add Item" class="btn btn-primary">
+    </div>
+</form>
+
 
     <hr>
    
 
     <!-- Display existing items with options to edit and delete -->
-    <?php foreach ($items['items'] as $item) : ?>
-        <div>
-            <h3><?= $item['name']; ?></h3>
-            <p>Brand: <?= $item['brand']; ?></p>
-            <p><?= $item['description']; ?></p>
-            <p>Price: $<?= $item['price']; ?></p>
-            <p>Discount: <?= $item['discount'] * 100; ?>%</p>
-            <p>Old Price: $<?= $item['oldPrice']; ?></p>
-            <p>Image URLs:</p>
-            <ul>
-                <?php foreach ($item['imageUrls'] as $imageUrl) : ?>
-                    <li><img src="<?= $imageUrl; ?>" alt="Product Image"></li>
-                <?php endforeach; ?>
-            </ul>
-            <p>
-                <a href="?delete=<?= $item['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
-            </p>
-        </div>
-    <?php endforeach; ?>
-
+<?php foreach ($items['items'] as $item) : ?>
+    <div>
+        <h3><?= $item['name']; ?></h3>
+        <p>Brand: <?= $item['brand']; ?></p>
+        <p><?= $item['description']; ?></p>
+        <p>Price: $<?= $item['price']; ?></p>
+        <p>Discount: <?= $item['discount'] * 100; ?>%</p>
+        <p>Old Price: $<?= $item['oldPrice']; ?></p>
+        <p>Colors:</p>
+        <ul>
+            <?php foreach ($item['item-colors'] as $color) : ?>
+                <li>
+                    <p>Color: <?= $color['color']; ?></p>
+                    <p>Image URLs:</p>
+                    <ul>
+                        <?php foreach ($color['imageUrls'] as $imageUrl) : ?>
+                            <li><img src="<?= $imageUrl; ?>" alt="Product Image"></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <p>
+            <a href="?delete=<?= $item['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+        </p>
+    </div>
+<?php endforeach; ?>
 
     </div>
 </body>

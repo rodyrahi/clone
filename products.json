@@ -1,5 +1,45 @@
 {
     "items": [
-
+        {
+            "id": 1,
+            "name": "shoes",
+            "brand": "aadidas",
+            "description": "good shoe",
+            "price": 10000,
+            "discount": 10,
+            "oldPrice": 5000,
+            "imageUrls": [
+                "kamingo.in\/kamingoicon.png"
+            ],
+            "colors": [
+                "red",
+                "green"
+            ],
+            "colorImageUrls": [
+                "hh1",
+                "hh2",
+                "hh4"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "tst",
+            "brand": "test2",
+            "description": "adasda",
+            "price": 69,
+            "discount": 20,
+            "oldPrice": 1000,
+            "colors": [
+                "red",
+                "green"
+            ],
+            "colorImageUrls": [
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgnykjygj8y.jpeg?q=70",
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/l-9565139-roadster-original-imafzhgnntpzugza.jpeg?q=70",
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/xl-9565139-roadster-original-imafzhgndfg2wyyp.jpeg?q=70",
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgnyf2zjgyg.jpeg?q=70",
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgntp4vbs9b.jpeg?q=70"
+            ]
+        }
     ]
 }

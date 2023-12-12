@@ -2,10 +2,14 @@
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+
+
 $routes = [
     '/' => 'home.php',
     '/product' => 'item.php',
     '/admin' => 'admin.php',
+    '/cart' => 'cart.php',
+
 
 
 ];
