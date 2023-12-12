@@ -6,6 +6,8 @@ $routes = [
     '/' => 'home.php',
     '/product' => 'item.php',
     '/admin' => 'admin.php',
+
+
 ];
 
 if (array_key_exists($uri, $routes)) {

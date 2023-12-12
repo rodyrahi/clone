@@ -4,7 +4,7 @@ $currentDirectory = getcwd();
 $jsonFileName = 'products.json';
 $jsonFilePath = $currentDirectory . '/' . $jsonFileName;
 
-echo 'Current Directory: ' . $currentDirectory . '<br>';
+
 
 // Read the JSON file
 $jsonData = file_get_contents($jsonFilePath);
@@ -59,6 +59,30 @@ if (isset($_GET['delete'])) {
 }
 ?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,38 +90,61 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
+    <div class="container">
     <h2>Items CRUD Panel</h2>
 
-    <!-- Form to add new items -->
-    <form method="post">
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
-        <br>
-        <label for="brand">Brand:</label>
-        <input type="text" name="brand" required>
-        <br>
-        <label for="description">Description:</label>
-        <textarea name="description" required></textarea>
-        <br>
-        <label for="price">Price:</label>
-        <input type="number" name="price" step="0.01" required>
-        <br>
-        <label for="discount">Discount:</label>
-        <input type="number" name="discount" step="0.01" required>
-        <br>
-        <label for="oldPrice">Old Price:</label>
-        <input type="number" name="oldPrice" step="0.01" required>
-        <br>
-        <label for="imageUrls">Image URLs (comma-separated):</label>
-        <input type="text" name="imageUrls" required>
-        <br>
-        <input type="submit" name="add" value="Add Item">
+    <form action="process_form.php" method="post">
+        <div class="mb-3">
+            <label for="payment" class="form-label">Payment:</label>
+            <input type="text" name="payment" class="form-control" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 
+    <!-- Form to add new items -->
+        <form method="post" class="mt-3">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="brand" class="form-label">Brand:</label>
+                <input type="text" name="brand" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="description" class="form-control" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" name="price" step="0.01" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="discount" class="form-label">Discount:</label>
+                <input type="number" name="discount" step="0.01" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="oldPrice" class="form-label">Old Price:</label>
+                <input type="number" name="oldPrice" step="0.01" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="imageUrls" class="form-label">Image URLs (comma-separated):</label>
+                <input type="text" name="imageUrls" class="form-control" required>
+            </div>
+            <!-- New input for payment -->
+
+            <div class="mb-3">
+                <input type="submit" name="add" value="Add Item" class="btn btn-primary">
+            </div>
+        </form>
+
     <hr>
+   
 
     <!-- Display existing items with options to edit and delete -->
     <?php foreach ($items['items'] as $item) : ?>
@@ -119,6 +166,9 @@ if (isset($_GET['delete'])) {
             </p>
         </div>
     <?php endforeach; ?>
+
+
+    </div>
 </body>
 
 </html>

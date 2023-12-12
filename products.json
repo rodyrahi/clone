@@ -1,43 +1,55 @@
 {
-  "items": [
-    {
-      "id": 1,
-      "name": "Product 1",
-      "brand": "Brand A",
-      "description": "Description for Product 1",
-      "price": 19.99,
-      "discount": 0.2,
-      "oldPrice": 24.99,
-      "imageUrls": [
-        "https://cromastore.shop/wp-content/uploads/2023/11/6538937984374c56f60a8e2e-junge-denim-jacket-men-fleece-jacket.jpg",
-        "https://example.com/product1/image2.jpg"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Product 2",
-      "brand": "Brand B",
-      "description": "Description for Product 2",
-      "price": 29.99,
-      "discount": 0.1,
-      "oldPrice": 34.99,
-      "imageUrls": [
-        "https://example.com/product2/image1.jpg",
-        "https://example.com/product2/image2.jpg"
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Product 3",
-      "brand": "Brand C",
-      "description": "Description for Product 3",
-      "price": 39.99,
-      "discount": 0.15,
-      "oldPrice": 44.99,
-      "imageUrls": [
-        "https://example.com/product3/image1.jpg",
-        "https://example.com/product3/image2.jpg"
-      ]
-    }
-  ]
+    "items": [
+        {
+            "id": 1,
+            "name": "Product 1",
+            "brand": "Brand A",
+            "description": "Description for Product 1",
+            "price": 19.99,
+            "discount": 0.2,
+            "oldPrice": 24.99,
+            "imageUrls": [
+                "https:\/\/cromastore.shop\/wp-content\/uploads\/2023\/11\/6538937984374c56f60a8e2e-junge-denim-jacket-men-fleece-jacket.jpg",
+                "https:\/\/example.com\/product1\/image2.jpg"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Product 2",
+            "brand": "Brand B",
+            "description": "Description for Product 2",
+            "price": 29.99,
+            "discount": 0.1,
+            "oldPrice": 34.99,
+            "imageUrls": [
+                "https:\/\/example.com\/product2\/image1.jpg",
+                "https:\/\/example.com\/product2\/image2.jpg"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Product 3",
+            "brand": "Brand C",
+            "description": "Description for Product 3",
+            "price": 39.99,
+            "discount": 0.15,
+            "oldPrice": 44.99,
+            "imageUrls": [
+                "https:\/\/example.com\/product3\/image1.jpg",
+                "https:\/\/example.com\/product3\/image2.jpg"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "new",
+            "brand": "add",
+            "description": "sdfsdfsdfsdaf",
+            "price": 455,
+            "discount": 8,
+            "oldPrice": 200,
+            "imageUrls": [
+                "https:\/\/5.imimg.com\/data5\/TF\/IW\/MY-17554435\/men-casual-pant.jpg"
+            ]
+        }
+    ]
 }
