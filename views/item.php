@@ -151,14 +151,14 @@ if (isset($_GET['item'])) {
           // Display detailed information about the selected product
           if ($selectedProduct) {
               echo '<div class="row border p-1 bg-white">';
-              echo '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">';
-              echo '<div class="carousel-inner">';
+              echo '<div id="carouselExampleControls"  class="carousel slide" data-bs-ride="carousel">';
+              echo '<div class="carousel-inner" >';
 
               // Loop through the image URLs for the carousel
               
               foreach ($selectedProduct['colorImageUrls'] as $index => $imageUrl) {
                 if ($index === 0 || $index > count($selectedProduct['colors']) ) {
-                    echo '<div class="carousel-item' . ($index === 0 ? ' active' : '') . '" >';
+                    echo '<div  class="carousel-item' . ($index === 0 ? ' active' : '') . '"  id="' . ($index === 0 ? 'first' : '') . '">';
                     echo '<img src="' . $imageUrl . '" class="d-block img-fluid" alt="Product Image" id="' . ($index === 0 ? 'active' : '') . '">';
                     echo '</div>';
                 }
@@ -296,7 +296,7 @@ if (isset($_GET['item'])) {
         <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
 
         <?php
-        echo'<a href="/cart?item=' . $selectedProduct['id'] . '" class="stretched-link"></a>';
+        echo'<a href="/cart?item=+&color=" class="stretched-link"></a>';
         ?>
 
        
@@ -343,9 +343,18 @@ if (isset($_GET['item'])) {
   function changecolor(element) {
     // Get the color from the data-color attribute
     var color = element.getAttribute('data-color');
-    document.getElementById('active').src = document.getElementById(color).src
-    console.log(document.getElementById(color).src)
+    document.getElementById('active').src = document.getElementById(color).src;
+
+    // Remove 'active' class from all elements with the class 'carousel-item'
+    var carouselItems = document.getElementsByClassName('carousel-item');
+    for (var i = 0; i < carouselItems.length; i++) {
+        carouselItems[i].classList.remove('active');
+    }
+
+    // Add 'active' class to the first element with the class 'carousel-item'
+    document.getElementById('first').classList.add('active');
 }
+
 </script>
 
 
