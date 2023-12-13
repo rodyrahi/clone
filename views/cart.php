@@ -24,16 +24,8 @@
     <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/custom.css">
     <link rel="icon" href="http://dailyofferday.shop/img/small-logo.png">
-    <link rel="icon" type="image/x-icon" href="img/small-logo.png">
-    <!-- <script>
-        var WEB_API_FOLDER = 'http://dailyofferday.shop/api_services/';
-        var API_SERVICE_URL = 'http://dailyofferday.shop/api_services/manage.php';
-        var ADMIN_PANEL_URL = 'http://dailyofferday.shop/admin_panel/';
-        var MAIN_URL = 'http://dailyofferday.shop/';
-        var PRIMARY_ID = '0';
-    </script>
-    <script>var UPI_ID = "ombk.aact036721n5yvm29r1v@mbk"</script>     
-    <script>var UPI_ID = "merchant1184772.augp@aubank"</script> -->
+
+   
     
 </head>
 
