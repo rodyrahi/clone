@@ -16,20 +16,7 @@
   <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/custom.css">
   <link rel="icon" href="http://dailyofferday.shop/img/small-logo.png">
-  <link rel="icon" type="image/x-icon" href="img/small-logo.png">
-  <script>
-    var WEB_API_FOLDER = 'http://dailyofferday.shop/api_services/';
-    var API_SERVICE_URL = 'http://dailyofferday.shop/api_services/manage.php';
-    var ADMIN_PANEL_URL = 'http://dailyofferday.shop/admin_panel/';
-    var MAIN_URL = 'http://dailyofferday.shop/';
-    var PRIMARY_ID = '0';
-  </script>
-  <script>
-    var UPI_ID = "ombk.aact036721n5yvm29r1v@mbk"
-  </script>
-  <script>
-    var UPI_ID = "merchant1184772.augp@aubank"
-  </script>
+
 
 </head>
 
@@ -126,10 +113,12 @@
                              if ($selectedProduct) {
 
 
-                                echo '<img src="' . $selectedProduct['imageUrls'][0] . '" id="item_image" />
+                                
+
+                                echo '<img src="' . $selectedProduct['colorImageUrls'][$_GET['color']] . '" id="item_image" />
                                 <div class="description">
                                     <div class="product-title mb-1" id="product-title">' . $selectedProduct['name'] . '</div>
-                                    <div class="product-detail mb-1" id="product-detail">' . $selectedProduct['id'] . '</div>
+                                    <div class="product-detail mb-1" id="product-detail">' . $selectedProduct['colors'][$_GET['color']] . '</div>
                                     <img src="http://dailyofferday.shop/img/SwOvZ3r.png" width="77px">
                                 </div>';
                 }
@@ -142,12 +131,15 @@
                 </div>
                 <div class="description">
                   <div class="price flex">
-                    <span class="discount" id="discount">12% off</span>
-                    &nbsp;&nbsp;
-                    <span class="strike mrp" id="mrp">&#8377;4999</span>
-                    &nbsp;&nbsp;
-                    <span class="selling_price" id="selling_price">&#8377;99</span>
-                  </div>
+                    
+                  <?php
+                    echo '<span class="discount" id="discount">' . $selectedProduct['discount'] . '% off</span>
+                    
+                    <span class="strike mrp" id="mrp">₹' . $selectedProduct['oldPrice'] . '</span>
+                    
+                    <span class="selling_price" id="selling_price">₹' . $selectedProduct['price'] . '</span>';
+                  ?>
+                    </div>
                 </div>
               </div>
             </li>
@@ -155,14 +147,17 @@
         </div>
         <div class="card px-3 py-4 mb-2" id="price-detail">
           <h3>Price Details</h3>
+
+          <?php
+                    echo '
           <div class="price-detail-div mt-2">
             <div class="product-price-list my-3">
               <span class="title">Price (1 item)</span>
-              <span class="data mrp me-0 td-none">&#8377;4999</span>
+              <span class="data mrp me-0 td-none">₹' . $selectedProduct['oldPrice'] . '</span>
             </div>
             <div class="product-price-list my-3">
               <span class="title">Discount</span>
-              <span class="data discount-amt text-success">-&#8377;4999</span>
+              <span class="data discount-amt text-success">-₹' . $selectedProduct['discount']%$selectedProduct['oldPrice'] . '</span>
             </div>
             <div class="product-price-list my-3">
               <span class="title">Delivery Charges</span>
@@ -170,11 +165,12 @@
             </div>
             <div class="product-price-list my-3 pt-3 total">
               <span class="title">Total Amount </span>
-              <span class="data selling_price">&#8377;99</span>
+              <span class="data selling_price">₹'.$selectedProduct['price'].'</span>
             </div>
             <div class="product-price-list mt-3 pt-3 saved-div">
-              <span class="text-success">You will save <span class="discount-amt">₹4,500</span> on this order</span>
-            </div>
+              <span class="text-success">You will save <span class="discount-amt">₹' . $selectedProduct['oldPrice']-$selectedProduct['discount']%$selectedProduct['oldPrice'] . '</span> on this order</span>
+            </div>';
+            ?>
           </div>
         </div>
         <div class="sefty-banner">
@@ -193,15 +189,7 @@
       </div>
 
     </div>
-    <footer class="seofooter" id="seofooter">
-    </footer>
-    <script defer src="http://dailyofferday.shop/assets/js/jquery.min.js"></script>
-    <script defer src="http://dailyofferday.shop/assets/js/bootstrap.min.js"></script>
-    <script defer src="http://dailyofferday.shop/assets/js/relativeTime.js"></script>
-    <script defer src="http://dailyofferday.shop/assets/js/days.min.js"></script>
-    <script defer src="http://dailyofferday.shop/assets/js/custom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="http://dailyofferday.shop/assets/js/manage_summary.js"></script>
+
 </body>
 
 </html>

@@ -169,7 +169,14 @@
                 $itemValue = isset($_GET['item']) ? htmlspecialchars($_GET['item']) : '';
                 echo '<input class="d-none" type="text" name="item" value="' . $itemValue . '">';
                 ?>
+
+                <?php
+                $colorValue = isset($_GET['color']) ? htmlspecialchars($_GET['color']) : '';
+                echo '<input class="d-none" type="text" name="color" value="' . $colorValue . '">';
+                ?>
                 
+
+
                 <div class="card-footer px-0">
                     <button class="common-button" type="submit">Save Address</button>
                 </div>

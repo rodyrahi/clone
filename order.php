@@ -10,11 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $flat = isset($_POST["flat"]) ? htmlspecialchars($_POST["flat"]) : "";
     $area = isset($_POST["area"]) ? htmlspecialchars($_POST["area"]) : "";
     $item = isset($_POST["item"]) ? htmlspecialchars($_POST["item"]) : "";
+    $color = isset($_POST["color"]) ? htmlspecialchars($_POST["color"]) : "";
 
     // You can perform any necessary validation or processing here
 
     // Redirect to the next page with query parameters
-    $redirectUrl = "views/order-summary.php?name=$fullName&number=$mobileNumber&pin=$pincode&city=$city&state=$state&flat=$flat&area=$area&item=$item";
+    $redirectUrl = "views/order-summary.php?name=$fullName&number=$mobileNumber&pin=$pincode&city=$city&state=$state&flat=$flat&area=$area&item=$item&color=$color";
     header("Location: $redirectUrl");
     exit;
 } else {

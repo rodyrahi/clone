@@ -189,8 +189,8 @@ if (isset($_GET['item'])) {
                   // Iterate over each color and generate HTML
                   echo '<div class="d-flex">';
                   foreach ($selectedProductColors as $index => $color) {
-                      echo '<div class="p-3 text-center me-2" id="images" onclick="changecolor(this)" data-color="' . $selectedProduct['colors'][$index] . '" style="border: 1px solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4185fbc9; ' . ($index === 0 ? 'border-color:#4185fbc9' : '') . ';">
-                              <img class="img-fluid mb-2" style="max-width: 70px;" id="' . $selectedProduct['colors'][$index] . '" src="' . $selectedProductImageUrls[$index] . '" alt="">
+                      echo '<div class="p-3 text-center me-2" id="images" onclick="changecolor(this)" data-color="' . $index . '" style="border: 1px solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4185fbc9; ' . ($index === 0 ? 'border-color:#4185fbc9' : '') . ';">
+                              <img class="img-fluid mb-2" style="max-width: 70px;" id="' . $index . '" src="' . $selectedProductImageUrls[$index] . '" alt="">
                               <p class="mb-0">' . $color . '</p>
                           </div>';
                   }
@@ -290,13 +290,13 @@ if (isset($_GET['item'])) {
 
 
 <script>
-  var images = document.querySelectorAll('#images');
-    
- 
-var selectedcolor=images[0].getAttribute('data-color');
-<?php $selectedcolor = $_GET["selectedcolor"]?>   
 
-var color=images[0].getAttribute('data-color');
+
+
+
+  
+
+
 </script>
 
 <div class="fixed-bottom row  " style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);">
@@ -304,7 +304,7 @@ var color=images[0].getAttribute('data-color');
         <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
 
         <?php
-        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=' . $selectedcolor . '" class="stretched-link"></a>';
+        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=" id="cart" class="stretched-link"></a>';
         ?>
 
        
@@ -351,10 +351,17 @@ var color=images[0].getAttribute('data-color');
 <script>
 
 
+  var url = document.getElementById('cart').href
 
+  var images = document.querySelectorAll('#images');
+  var color=images[0].getAttribute('data-color');
+
+  document.getElementById('cart').href = url + color;
 
 
   function changecolor(element) {
+
+     
     // Get the color from the data-color attribute
     color = element.getAttribute('data-color');
     document.getElementById('active').src = document.getElementById(color).src;
@@ -378,8 +385,7 @@ var color=images[0].getAttribute('data-color');
 
     // Add 'active' class to the first element with the class 'carousel-item'
     document.getElementById('first').classList.add('active');
-    selectedcolor= color
-    <?php $color = "<script>document.write(color)</script>"?>   
+    document.getElementById('cart').href = url+ color;
 
 }
 
