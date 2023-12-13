@@ -314,28 +314,9 @@ if (isset($_GET['item'])) {
       
 
 
-      <?php
-      $currentDirectory = getcwd();
-      $jsonFileName = 'payment.json';
-      $jsonFilePath = $currentDirectory . '/' . $jsonFileName;
-      
-      // Read the content of the JSON file
-      $jsonContent = file_get_contents($jsonFilePath);
-      
-      // Decode the JSON data
-      $data = json_decode($jsonContent, true); // Set the second parameter to true to get an associative array
-      
-      // Check if decoding was successful
-      if ($data !== null) {
-          // Access the "url" value
-          $url = $data['url'];
-      
-          // Use the $url variable as needed
-          echo '<a href="' . $url . '" class="stretched-link"></a>';
-      } else {
-          echo "Error decoding JSON data";
-      }
-      ?>
+        <?php
+        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=" id="cart" class="stretched-link"></a>';
+        ?>
       
     </div>
       

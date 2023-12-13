@@ -99,24 +99,24 @@
         <form method="POST" action="order.php">
             <div class="card-body">
                 <div class="form-floating mb-3">
-                    <input class="form-control" type="text" id="name" name="name" placeholder="Full name" required>
-                    <label for="floatingInput">Full Name (Required)*</label>
+                    <input class="form-control" type="text" id="name" name="name" placeholder="Full name" >
+                    <label for="floatingInput">Full Name </label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" type="text" id="number" name="number" placeholder="Mobile number" required>
-                    <label for="floatingInput">Mobile number (Required)*</label>
+                    <input class="form-control" type="text" id="number" name="number" placeholder="Mobile number" >
+                    <label for="floatingInput">Mobile number </label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" type="text" id="pin" name="pin" placeholder="PIN code" required>
-                    <label for="floatingInput">Pincode (Required)*</label>
+                    <input class="form-control" type="text" id="pin" name="pin" placeholder="PIN code" >
+                    <label for="floatingInput">Pincode </label>
                 </div>
                 <div class="row">
                     <div class="col-6 form-floating">
-                        <input class="form-control" type="text" id="city" name="city" placeholder="Town/City" required>
-                        <label for="floatingInput">City (Required)*</label>
+                        <input class="form-control" type="text" id="city" name="city" placeholder="Town/City" >
+                        <label for="floatingInput">City </label>
                     </div>
                     <div class="col-6 form-floating">
-                        <select class="form-select" id="state" name="state" required>
+                        <select class="form-select" id="state" name="state" >
                             <option value="AP">Andhra Pradesh</option>    
                             <option value="AR">Arunachal Pradesh</option>
                             <option value="AS">Assam</option>
@@ -154,16 +154,16 @@
                             <option value="LD">Lakshadweep</option>
                             <option value="PY">Puducherry</option>
                         </select>
-                        <label for="floatingInput">State (Required)*</label>
+                        <label for="floatingInput">State </label>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
                     <input class="form-control" type="text" id="flat" name="flat" placeholder="Flat, House.no, Building, Company">
-                    <label for="floatingInput">House No., Building Name (Required)*</label>
+                    <label for="floatingInput">House No., Building Name </label>
                 </div>
                 <div class="form-floating mb-3">
                     <input class="form-control" type="text" id="area" name="area" placeholder="Area, Colony, Street, Sector, Village">
-                    <label for="floatingInput">Road name, Area, Colony (Required)*</label>
+                    <label for="floatingInput">Road name, Area, Colony </label>
                 </div>
                 <?php
                 $itemValue = isset($_GET['item']) ? htmlspecialchars($_GET['item']) : '';

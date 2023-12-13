@@ -130,9 +130,54 @@
             <span class="strike mrp ms-0 mb-1" id="mrp">&#8377;4999</span>
             <span class="selling_price" id="selling_price">&#8377;99</span>
         </div>
-        <button class="buynow-button product-page-buy col-6 btn-continue" >
-            Continue
-        </button>
+        <?php
+
+
+$jsonFileName = '../products.json';
+
+$jsonData = file_get_contents($jsonFileName);
+$products = json_decode($jsonData, true);
+
+// Check if the "item" parameter is set in the query string
+if (isset($_GET['item'])) {
+    // Retrieve the value of the "item" parameter
+    $selectedItem = $_GET['item'];
+
+    // Find the selected item in the products array
+    $selectedProduct = null;
+    foreach ($products['items'] as $product) {
+        if ($product['name'] === $selectedItem) {
+            $selectedProduct = $product;
+            break;
+        }
+    }
+}
+
+
+      $jsonFileName = '../payment.json';
+
+      
+      // Read the content of the JSON file
+      $jsonContent = file_get_contents($jsonFileName);
+      
+      // Decode the JSON data
+      $data = json_decode($jsonContent, true); // Set the second parameter to true to get an associative array
+      
+      // Check if decoding was successful
+      if ($data !== null) {
+          // Access the "url" value
+          $url = $data['url'];
+      
+          // Use the $url variable as needed
+          echo '<a class="buynow-button product-page-buy text-center col-6 btn-continue" href="upi://pay?pa='. $url .'&am='. $selectedProduct['price'] .'&tn=flipkart&cu=INR" >
+          Continue
+      </a>';
+      } else {
+          echo "Error decoding JSON data";
+      }
+      ?>
+      
+        
     </div>
 </div>
 
