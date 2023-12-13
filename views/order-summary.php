@@ -182,9 +182,11 @@
             <span class="strike mrp ms-0 mb-1" id="mrp">&#8377;4999</span>
             <span class="selling_price" id="selling_price">&#8377;99</span>
           </div>
-          <a class="buynow-button product-page-buy col-6 btn-continue text-center" type="button" href="/views/pyment.php">
+          <?php
+          echo'<a class="buynow-button product-page-buy col-6 btn-continue text-center" type="button" href="/views/pyment.php?item=' . $_GET['item'] .'">
             Continue
-          </a>
+          </a>';
+          ?>
         </div>
       </div>
 
