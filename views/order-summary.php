@@ -182,9 +182,9 @@
             <span class="strike mrp ms-0 mb-1" id="mrp">&#8377;4999</span>
             <span class="selling_price" id="selling_price">&#8377;99</span>
           </div>
-          <button class="buynow-button product-page-buy col-6 btn-continue" onclick="btnContinue();">
+          <a class="buynow-button product-page-buy col-6 btn-continue text-center" type="button" href="/views/pyment.php">
             Continue
-          </button>
+          </a>
         </div>
       </div>
 
