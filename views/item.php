@@ -89,7 +89,7 @@ if (isset($_GET['item'])) {
           <svg width="19" height="16" viewBox="0 0 19 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.556 7.847H1M7.45 1L1 7.877l6.45 6.817" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
           </svg>
-          <img src="/public/brand.png" class="ms-3" title="Flipkart">
+          <img src="/public/brand.png" width="70px" class="ms-3" title="Flipkart">
 
 
         </div>
@@ -189,7 +189,7 @@ if (isset($_GET['item'])) {
                   // Iterate over each color and generate HTML
                   echo '<div class="d-flex">';
                   foreach ($selectedProductColors as $index => $color) {
-                      echo '<div class="p-3 text-center me-2" onclick="changecolor(this)" data-color="' . $selectedProduct['colors'][$index] . '" style="border: 1px #4184FB solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4184FB;">
+                      echo '<div class="p-3 text-center me-2" id="images" onclick="changecolor(this)" data-color="' . $selectedProduct['colors'][$index] . '" style="border: 1px solid; border-radius: 0.6rem; max-width: 100px; box-shadow: 1px 1px 2px #4185fbc9; ' . ($index === 0 ? 'border-color:#4185fbc9' : '') . ';">
                               <img class="img-fluid mb-2" style="max-width: 70px;" id="' . $selectedProduct['colors'][$index] . '" src="' . $selectedProductImageUrls[$index] . '" alt="">
                               <p class="mb-0">' . $color . '</p>
                           </div>';
@@ -245,7 +245,7 @@ if (isset($_GET['item'])) {
                 <img class="m-auto" src="http://dailyofferday.shop/assets/images/pay-latter.png" alt="pay-latter">
               </div>';
 
-              echo'<div class="row p-2 bg-white border mt-1 ">
+              echo'<div class="row py-2 bg-white border mt-1 ">
                 
                     <div class="col-4  d-flex flex-column text-center" >
                       <img class="m-auto mb-2"  width="30px" src="http://dailyofferday.shop/assets/images/replacement.png">
@@ -289,14 +289,22 @@ if (isset($_GET['item'])) {
       ?>
 
 
+<script>
+  var images = document.querySelectorAll('#images');
+    
+ 
+var selectedcolor=images[0].getAttribute('data-color');
+<?php $selectedcolor = $_GET["selectedcolor"]?>   
 
+var color=images[0].getAttribute('data-color');
+</script>
 
 <div class="fixed-bottom row  " style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);">
       <div class="col-6 p-3 d-flex bg-white " >
         <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
 
         <?php
-        echo'<a href="/cart?item=+&color=" class="stretched-link"></a>';
+        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=' . $selectedcolor . '" class="stretched-link"></a>';
         ?>
 
        
@@ -339,20 +347,40 @@ if (isset($_GET['item'])) {
 
   </div>
 
+
 <script>
+
+
+
+
+
   function changecolor(element) {
     // Get the color from the data-color attribute
-    var color = element.getAttribute('data-color');
+    color = element.getAttribute('data-color');
     document.getElementById('active').src = document.getElementById(color).src;
+
+
+    var images = document.querySelectorAll('#images');
+    for (var i = 0; i < images.length; i++) {
+      images[i].style.borderColor = 'gray';
+
+    }
+
+
+    element.style.borderColor = '#4185fbc9';
 
     // Remove 'active' class from all elements with the class 'carousel-item'
     var carouselItems = document.getElementsByClassName('carousel-item');
     for (var i = 0; i < carouselItems.length; i++) {
         carouselItems[i].classList.remove('active');
+        
     }
 
     // Add 'active' class to the first element with the class 'carousel-item'
     document.getElementById('first').classList.add('active');
+    selectedcolor= color
+    <?php $color = "<script>document.write(color)</script>"?>   
+
 }
 
 </script>

@@ -35,7 +35,7 @@
         <div class="d-flex">
           <i class="fa-solid fa-bars text-white m-auto me-2" style="font-size: 1.1rem;"></i>
           <!-- <img src="/public/ham.png"  class="me-2 d-block d-md-none" alt="" srcset="" width="20px" height="20px" > -->
-          <img src="/public/brand.png" width="55px" title="Flipkart">
+          <img src="/public/brand.png" width="70px" title="Flipkart">
 
 
         </div>
