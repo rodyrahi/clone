@@ -170,7 +170,7 @@
 
 
                 <div class="card-footer px-0">
-                    <button class="common-button" type="submit">Save Address</button>
+                    <button class="common-button text-white" type="submit">Save Address</button>
                 </div>
 
             </div>

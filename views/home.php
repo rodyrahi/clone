@@ -8,6 +8,11 @@
   <title>Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,user-scalable=no">
+
+  <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://dailyofferday.shop/assets/css/custom.css">
+  
 </head>
 
 
@@ -130,7 +135,20 @@
       </div>
       
 
+<div class="row mt-2">
+  <div class="col bg-white d-flex p-2 flex-column ">
+    <h3 class="m-auto mb-2 text-primary" >Deals of the Day</h3>
+    <div class="m-auto d-flex ">
+      <img class="me-2"  src="http://dailyofferday.shop/assets/images/theme/clock.svg" width="20px" alt="" srcset="">
+      <h3 class="m-0 text-danger"  id="time">15:00</h3>
+    </div>
 
+    <div class="_3Nxu4r m-auto mt-2">
+      <button class="_1s54Jm btn-sale-is-live">SALE IS LIVE</button>
+  </div>
+  </div>
+  
+</div>
 
 
       <div class="row mt-2">
@@ -185,7 +203,19 @@ if ($products && isset($products['items'])) {
 
 
 
+<script>
 
+  setInterval(function() {
+    var d = new Date();
+    var seconds = d.getMinutes() * 60 + d.getSeconds(); //convet 00:00 to seconds for easier caculation
+    var fiveMin = 60 * 34; //five minutes is 300 seconds!
+    var timeleft = fiveMin - seconds % fiveMin; // let's say 01:30, then current seconds is 90, 90%300 = 90, then 300-90 = 210. That's the time left!
+    var result = parseInt(timeleft / 60) + ':' + timeleft % 60; //formart seconds into 00:00 
+    document.getElementById('time').textContent = result;
+
+}, 500) //calling it every 0.5 second to do a count down
+
+</script>
 
 
 

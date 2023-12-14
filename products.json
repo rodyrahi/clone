@@ -2,43 +2,40 @@
     "items": [
         {
             "id": 1,
-            "name": "shoes",
-            "brand": "aadidas",
-            "description": "good shoe",
-            "price": 10000,
-            "discount": 10,
-            "oldPrice": 5000,
-            "imageUrls": [
-                "kamingo.in\/kamingoicon.png"
-            ],
+            "name": "Men Solid Polo Neck Poly Cotton Yellow T-Shirt",
+            "brand": "PETER ENGLAND ",
+            "description": "Aditya Birla Fashion Retail Ltd 7th Floor Skyline Icon Hasan Pada Road Andheri East 400059",
+            "price": 571,
+            "discount": 48,
+            "oldPrice": 1099,
             "colors": [
+                "gray",
                 "red",
-                "green"
+                "yellow"
             ],
             "colorImageUrls": [
-                "hh1",
-                "hh2",
-                "hh4"
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/t-shirt\/1\/g\/u\/m-pckpsrgpy11389-peter-england-original-imagztcepv4h42ts.jpeg?q=70",
+                "\r\nhttps:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/t-shirt\/c\/q\/q\/m-pckpsrgpp23874-peter-england-original-imagztccfzahfyej.jpeg?q=70",
+                "\r\nhttps:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/t-shirt\/p\/s\/c\/m-pckpsrgp959662-peter-england-original-imagztcegyzhurra.jpeg?q=70"
             ]
         },
         {
             "id": 2,
-            "name": "tst",
-            "brand": "test2",
-            "description": "adasda",
-            "price": 69,
-            "discount": 20,
-            "oldPrice": 1000,
+            "name": "Boys Printed Casual Jacket",
+            "brand": "TRIPR ",
+            "description": "High quality Designer Hooded Neck Jacket Full sleeves direct from the manufacturers. 100% Pure combed 280 GSM Cotton used. Gives you perfect fit, comfort feel and handsome look.",
+            "price": 899,
+            "discount": 55,
+            "oldPrice": 1999,
             "colors": [
-                "red",
-                "green"
+                "white",
+                "black"
             ],
             "colorImageUrls": [
-                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgnykjygj8y.jpeg?q=70",
-                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/l-9565139-roadster-original-imafzhgnntpzugza.jpeg?q=70",
-                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/xl-9565139-roadster-original-imafzhgndfg2wyyp.jpeg?q=70",
-                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgnyf2zjgyg.jpeg?q=70",
-                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/k62i5jk0\/sweatshirt\/6\/y\/8\/s-9565139-roadster-original-imafzhgntp4vbs9b.jpeg?q=70"
+                "https:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/jacket\/u\/u\/z\/m-no-twthdfuljacket-k32-tripr-original-imagtcjjpnrmhh4z.jpeg?q=70",
+                "\r\nhttps:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/jacket\/t\/m\/j\/xxl-no-tblhdfuljacket-k33-tripr-original-imagtcjjjskwhwth.jpeg?q=70",
+                "\r\nhttps:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/jacket\/u\/u\/z\/m-no-twthdfuljacket-k32-tripr-original-imagtcjjpnrmhh4z.jpeg?q=70",
+                "\r\nhttps:\/\/rukminim2.flixcart.com\/image\/832\/832\/xif0q\/jacket\/a\/u\/l\/s-no-twthdfuljacketnew-k35-tripr-original-imagtqwashyzzseg.jpeg?q=70"
             ]
         }
     ]
