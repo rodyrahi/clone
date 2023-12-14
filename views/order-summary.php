@@ -178,11 +178,13 @@
           <div dir="auto" class="sefty-txt">Safe and secure payments. Easy returns. 100% Authentic products.</div>
         </div>
         <div class="button-container flex p-3 bg-white">
-          <div class="col-6 footer-price">
-            <span class="strike mrp ms-0 mb-1" id="mrp">&#8377;4999</span>
-            <span class="selling_price" id="selling_price">&#8377;99</span>
-          </div>
-          <?php
+        <?php
+          echo '<div class="col-6 footer-price">
+            
+            <span class="strike mrp ms-0 mb-1" id="mrp">&#8377;'.$selectedProduct['oldPrice'].'</span>
+            <span class="selling_price" id="selling_price">&#8377;'.$selectedProduct['price'].'</span>
+          </div>';
+          
           echo'<a class="buynow-button product-page-buy col-6 btn-continue text-center" type="button" href="/views/pyment.php?item=' . $_GET['item'] .'">
             Continue
           </a>';

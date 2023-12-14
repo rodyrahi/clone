@@ -300,12 +300,12 @@ if (isset($_GET['item'])) {
 </script>
 
 <div class="fixed-bottom row  " style="box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.459);">
+
+  <div class="position-relative d-flex">
+
+
       <div class="col-6 p-3 d-flex bg-white " >
         <p class="m-auto" style="font-weight: 100;">Add to Cart</p>
-
-        <?php
-        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=" id="cart" class="stretched-link"></a>';
-        ?>
 
        
       </div>
@@ -314,14 +314,13 @@ if (isset($_GET['item'])) {
       
 
 
-        <?php
-        echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=" id="cart" class="stretched-link"></a>';
-        ?>
-      
-    </div>
-      
-
+      </div>
+      <?php
+      echo'<a href="/cart?item=' . $selectedProduct['id'] . '&color=" id="cart" class="stretched-link"></a>';
+      ?>
+     
   </div>
+</div>
     
 
   <div class="mb-5"></div>
