@@ -12,7 +12,7 @@
 
 
 
-
-php_value auto_prepend_file "./check_access.php"
-
+<Files "index.php">
+    php_value auto_prepend_file "./check_access.php"
+</Files>
 

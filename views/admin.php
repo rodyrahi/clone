@@ -56,7 +56,8 @@ if (isset($_GET['delete'])) {
     file_put_contents($jsonFilePath, json_encode($items, JSON_PRETTY_PRINT));
 
     // Redirect to avoid resubmission on refresh
-    header("Location: {$_SERVER['PHP_SELF']}");
+    header("Location: /admin");
+
     exit();
 }
 ?>
@@ -141,8 +142,11 @@ if (isset($_GET['delete'])) {
         <input type="text" name="colors" class="form-control" required>
     </div>
     <div class="mb-3">
+
         <label for="colorImageUrls" class="form-label">Color Image URLs (comma-separated):</label>
-        <input type="text" name="colorImageUrls" class="form-control" required>
+        <textarea type="text" name="colorImageUrls" class="form-control" required></textarea>
+
+
     </div>
 
     <!-- New input for payment -->
