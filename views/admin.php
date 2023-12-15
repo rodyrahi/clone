@@ -170,17 +170,21 @@ if (isset($_GET['delete'])) {
         <p>Old Price: $<?= $item['oldPrice']; ?></p>
         <p>Colors:</p>
         <ul>
-            <?php foreach ($item['item-colors'] as $color) : ?>
+            <?php foreach ($item['colors'] as $color) : ?>
                 <li>
-                    <p>Color: <?= $color['color']; ?></p>
-                    <p>Image URLs:</p>
-                    <ul>
-                        <?php foreach ($color['imageUrls'] as $imageUrl) : ?>
-                            <li><img src="<?= $imageUrl; ?>" alt="Product Image"></li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <p>Color: <?= $color ?></p>
                 </li>
             <?php endforeach; ?>
+            <li>
+            <?php foreach ($item['colorImageUrls'] as $colorimg) : ?>
+
+                
+
+                    <img src="<?= $colorimg ?>" width="50px" alt="">
+                   
+              
+            <?php endforeach; ?>
+            </li>
         </ul>
         <p>
             <a href="?delete=<?= $item['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
