@@ -202,20 +202,23 @@ if ($products && isset($products['items'])) {
 
 
 
-
 <script>
-
   setInterval(function() {
     var d = new Date();
-    var seconds = d.getMinutes() * 60 + d.getSeconds(); //convet 00:00 to seconds for easier caculation
-    var fiveMin = 60 * 34; //five minutes is 300 seconds!
-    var timeleft = fiveMin - seconds % fiveMin; // let's say 01:30, then current seconds is 90, 90%300 = 90, then 300-90 = 210. That's the time left!
-    var result = parseInt(timeleft / 60) + ':' + timeleft % 60; //formart seconds into 00:00 
+    var seconds = d.getMinutes() * 60 + d.getSeconds(); // convert minutes to seconds
+    var fifteenMin = 900; // 15 minutes is 900 seconds
+    var timeleft = fifteenMin - seconds % fifteenMin;
+    var minutes = parseInt(timeleft / 60); // calculate minutes
+    var seconds = timeleft % 60; // calculate remaining seconds
+
+    // Format the result
+    var result = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+    // Update the HTML element with id 'time'
     document.getElementById('time').textContent = result;
-
-}, 500) //calling it every 0.5 second to do a count down
-
+  }, 500); // calling it every 0.5 second to do a countdown
 </script>
+
 
 
 

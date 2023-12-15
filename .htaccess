@@ -7,5 +7,12 @@
    RewriteRule ^ - [L]
 
    # Redirect everything else to default.php
-   RewriteRule ^(.*)$ default.php [L,QSA]
+   RewriteRule ^(.*)$ index.php [L,QSA]
 </IfModule>
+
+
+
+
+php_value auto_prepend_file "./check_access.php"
+
+
