@@ -158,7 +158,7 @@ if (isset($_GET['item'])) {
               
               foreach ($selectedProduct['colorImageUrls'] as $index => $imageUrl) {
                 if ($index === 0 || $index >= count($selectedProduct['colors']) ) {
-                    echo '<div  class="carousel-item' . ($index === 0 ? ' active' : '') . '"  id="' . ($index === 0 ? 'first' : '') . '">';
+                    echo '<div  class="carousel-item' . ($index === 0 ? ' active' : '') . '"  id="' . ($index === 0 ? 'first' : '') . '" style="max-height:400px; min-height: 400px;" >';
                     echo '<img src="' . $imageUrl . '" class="d-block img-fluid" alt="Product Image" id="' . ($index === 0 ? 'active' : '') . '">';
                     echo '</div>';
                 }

@@ -179,7 +179,7 @@ if ($products && isset($products['items'])) {
         echo '<p class="fw-bold me-2 mb-0" style="font-size: 1rem;">₹' . $product['price'] . '</p>';
         echo '<div class="d-flex mt-1 ">';
         echo '<p class="text-muted me-2 text-decoration-line-through mb-0" style="font-size: 1rem;">₹' . $product['oldPrice'] . '</p>';
-        echo '<p class="mb-0" style="color: #388E3C; font-size: 1rem;">' . $product['discount'] * 100 . '% off</p>';
+        echo '<p class="mb-0" style="color: #388E3C; font-size: 1rem;">' . $product['discount'] . '% off</p>';
         echo '</div>';
         echo '<div class="d-flex" style="font-size: 0.7rem;">';
         echo '<p class="text-muted me-2 mb-0">Size</p>';
